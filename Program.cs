@@ -42,6 +42,21 @@ class Program
         else
             Console.WriteLine("Fail " + fac.ToString());
 
+        /* Palindromo */
+        var pal = algs.Palindromo("amor e roma");
+        if (pal == true)
+            Console.WriteLine("Success");
+        else
+            Console.WriteLine("Fail");
+
+        /* Encontre os indices no array */
+        var idx = algs.FindIndex([0, 1, 2, 0, 3, 4, 4, 5], 4);
+        if (idx.Length == 2 && idx[0] == 5 && idx[0] == 6)
+            Console.WriteLine("Success");
+        else
+            Console.WriteLine("Fail");
+
+
         /*=================================================================*/
 
         /* Lucky Number */

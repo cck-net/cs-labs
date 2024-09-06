@@ -1,3 +1,5 @@
+using System.Reflection.Metadata.Ecma335;
+
 public class Algs
 {
     /* Alunos e salas */
@@ -25,11 +27,30 @@ public class Algs
         return (s0 + v0) * this.HoursToIntersect(s0, v0, s1, v1);
     }
 
+    /* Fatorial */
     public int Factorial(int n)
     {
         if (n <= 1) return n;
 
         return n * this.Factorial(n - 1);
+    }
+
+    /* Palindromo */
+    public bool Palindromo(string txt)
+    {
+        return txt == new string(txt.Reverse().ToArray());
+    }
+
+    /* Encontre os indices no array */
+    public int[] FindIndex(int[] arr, int num)
+    {
+        return arr.Select((n, i) =>
+        {
+            if (num == n)
+                return i + 1;
+            else
+                return -1;
+        }).ToArray();
     }
 
     /*=================================================================*/
