@@ -1,5 +1,3 @@
-using System.Reflection.Metadata.Ecma335;
-
 public class Algs
 {
     /* Alunos e salas */
@@ -47,10 +45,71 @@ public class Algs
         return arr.Select((n, i) =>
         {
             if (num == n)
-                return i + 1;
+                return i;
             else
                 return -1;
-        }).ToArray();
+        }).Where(f => f != -1).ToArray();
+    }
+
+    /* Encontre o maior */
+
+    /* Encontre o menor */
+
+    /* Encontre o n elemento fibonacci */
+    public int Fibonacci(int idx)
+    {
+        if (idx <= 1) return idx;
+
+        return this.Fibonacci(idx - 2) + this.Fibonacci(idx - 1);
+    }
+
+    /* Gera P.A. */
+    public int[] PA(int prog, int size)
+    {
+
+        var res = new int[size];
+        res[0] = 1;
+
+        for (int i = 1; i < size; i++)
+            res[i] = res[i - 1] + prog;
+
+        return res;
+    }
+
+    /* Valida P.A. */
+    public bool IsPA(int[] arr)
+    {
+        if (arr.Length <= 1)
+            return false;
+
+        var factor = arr[1] - arr[0];
+
+        for (int i = 1; i < arr.Length; i++)
+        {
+            if (arr[i] - arr[i - 1] == factor)
+                continue;
+            else
+                return false;
+        }
+        return true;
+    }
+
+    /* Valida P.G. */
+    public bool IsPG(int[] arr)
+    {
+        if (arr.Length <= 1)
+            return false;
+
+        var factor = arr[arr.Length - 1] / arr[arr.Length - 2];
+
+        for (int i = arr.Length - 1; i > 1; i--)
+        {
+            if (arr[i] / arr[i - 1] == factor)
+                continue;
+            else
+                return false;
+        }
+        return true;
     }
 
     /*=================================================================*/
